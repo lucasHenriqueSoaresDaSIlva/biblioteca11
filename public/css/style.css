@@ -1,0 +1,641 @@
+/**
+ * Estilos principais da Biblioteca Escolar
+ * 
+ * Arquivo CSS responsável por toda a apresentação visual da aplicação.
+ * Inclui estilos para layout, formulários, tabelas e componentes de feedback.
+ * 
+ * @author Desenvolvedor PHP
+ * @version 1.0
+ */
+
+/* ========================
+   RESET E CONFIGURAÇÕES GLOBAIS
+   ======================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* ========================
+   CONTAINER E LAYOUT
+   ======================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========================
+   CABEÇALHO
+   ======================== */
+
+.cabecalho {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.cabecalho .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.navegacao {
+    flex: 1;
+    text-align: right;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.link-menu {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.link-menu:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.link-menu.btn-criar {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+.link-menu.btn-criar:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ========================
+   CONTEÚDO PRINCIPAL
+   ======================== */
+
+.conteudo-principal {
+    min-height: calc(100vh - 200px);
+    padding: 2rem 0;
+}
+
+.secao-principal,
+.secao-formulario {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================
+   TÍTULOS E SUBTÍTULOS
+   ======================== */
+
+.titulo-secao {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 1rem;
+}
+
+.titulo-secao h2 {
+    font-size: 1.8rem;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ========================
+   ALERTAS E MENSAGENS
+   ======================== */
+
+.alerta {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alerta-sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.alerta-erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.alerta-aviso {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+.alerta-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.fechar-alerta {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.fechar-alerta:hover {
+    opacity: 1;
+}
+
+.mensagem-vazia {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.mensagem-vazia p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* ========================
+   BUSCA
+   ======================== */
+
+.caixa-busca {
+    margin-bottom: 2rem;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+.formulario-busca {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-busca {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.input-busca {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-busca:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ========================
+   TABELAS
+   ======================== */
+
+.tabela-responsiva {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.tabela thead {
+    background-color: #667eea;
+    color: white;
+}
+
+.tabela th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #667eea;
+}
+
+.tabela td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tabela tbody tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.2s;
+}
+
+.tabela tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.titulo-livro {
+    font-weight: 600;
+    color: #333;
+}
+
+.ano,
+.quantidade {
+    text-align: center;
+}
+
+.acoes {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.formulario-delete {
+    display: inline;
+}
+
+/* ========================
+   FORMULÁRIOS
+   ======================== */
+
+.formulario-livro {
+    max-width: 600px;
+}
+
+.grupo-formulario {
+    margin-bottom: 1.5rem;
+}
+
+.grupo-formulario.com-erro .label {
+    color: #dc3545;
+}
+
+.grupo-formulario.com-erro .input {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.mensagem-erro {
+    display: block;
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.linha-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .linha-campos {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-auditoria {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid #667eea;
+}
+
+.info-auditoria p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.nota {
+    color: #999;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* ========================
+   BOTÕES
+   ======================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-primario {
+    background-color: #667eea;
+    color: white;
+}
+
+.btn-primario:hover {
+    background-color: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secundario {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secundario:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.4);
+}
+
+.btn-editar {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-editar:hover {
+    background-color: #e0a800;
+    color: white;
+}
+
+.btn-deletar {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-deletar:hover {
+    background-color: #c82333;
+}
+
+.btn-pequeno {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.btn-salvar {
+    min-width: 150px;
+}
+
+.grupo-botoes {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ========================
+   BADGES
+   ======================== */
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.badge-sucesso {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-aviso {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* ========================
+   RESUMO
+   ======================== */
+
+.resumo {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    color: #666;
+}
+
+/* ========================
+   RODAPÉ
+   ======================== */
+
+.rodape {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.rodape p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* ========================
+   RESPONSIVIDADE
+   ======================== */
+
+@media (max-width: 768px) {
+    .cabecalho .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .menu {
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .link-menu {
+        display: inline-block;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .campo-busca {
+        flex-direction: column;
+    }
+
+    .input-busca {
+        min-width: auto;
+    }
+
+    .acoes {
+        flex-direction: column;
+    }
+
+    .tabela th,
+    .tabela td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .grupo-botoes {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .secao-principal,
+    .secao-formulario {
+        padding: 1.5rem;
+    }
+
+    .titulo-secao h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .menu {
+        font-size: 0.9rem;
+    }
+
+    .link-menu {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .tabela {
+        font-size: 0.85rem;
+    }
+
+    .tabela th,
+    .tabela td {
+        padding: 0.5rem;
+    }
+
+    .titulo-secao h2 {
+        font-size: 1.3rem;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* ========================
+   ACESSIBILIDADE
+   ======================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focusable elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
